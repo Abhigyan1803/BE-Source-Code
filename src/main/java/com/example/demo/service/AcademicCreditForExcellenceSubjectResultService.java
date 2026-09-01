@@ -1,0 +1,16 @@
+package com.example.demo.service;
+
+import com.example.demo.model.AcademicCreditForExcellenceSubjectResult;
+
+public interface AcademicCreditForExcellenceSubjectResultService {
+	AcademicCreditForExcellenceSubjectResult createSubResult(
+			AcademicCreditForExcellenceSubjectResult creditForExcellenceSubRslt);
+
+	void createCreditForExcellenceSubResult(AcademicCreditForExcellenceSubjectResult creditForExcellenceSubRslt);
+
+	AcademicCreditForExcellenceSubjectResult getSubResultById(Long id);
+
+	AcademicCreditForExcellenceSubjectResult updateSubResult(
+			AcademicCreditForExcellenceSubjectResult creditForExcellenceSubjectResult);
+
+}

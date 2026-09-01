@@ -1,0 +1,162 @@
+package com.example.demo.model;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+@Entity
+public class Weapon implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String name;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<WeaponAttributes> wa;
+
+	@Column(name = "g_point_I_term")
+	private String gPointITerm;
+
+	@Column(name = "g_point_II_term")
+	private String gPointIITerm;
+
+	@Column(name = "g_point_III_term")
+	private String gPointIIITerm;
+
+	@Column(name = "g_point_II_tech")
+	private String gPointIITech;
+
+	private Integer status;
+
+	@Transient
+	private Integer totalMaxMarks;
+
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
+
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public List<WeaponAttributes> getWa() {
+		return wa;
+	}
+
+	public void setWa(List<WeaponAttributes> wa) {
+		this.wa = wa;
+	}
+
+	public String getgPointITerm() {
+		return gPointITerm;
+	}
+
+	public void setgPointITerm(String gPointITerm) {
+		this.gPointITerm = gPointITerm;
+	}
+
+	public String getgPointIITerm() {
+		return gPointIITerm;
+	}
+
+	public void setgPointIITerm(String gPointIITerm) {
+		this.gPointIITerm = gPointIITerm;
+	}
+
+	public String getgPointIIITerm() {
+		return gPointIIITerm;
+	}
+
+	public void setgPointIIITerm(String gPointIIITerm) {
+		this.gPointIIITerm = gPointIIITerm;
+	}
+
+	@Override
+	public String toString() {
+		return "Weapon [id=" + id + ", name=" + name + ", wa=" + wa + ", gPointITerm=" + gPointITerm + ", gPointIITerm="
+				+ gPointIITerm + ", gPointIIITerm=" + gPointIIITerm + ", status=" + status + ", createdAt=" + createdAt
+				+ ", updatedAt=" + updatedAt + "]";
+	}
+
+	public Integer getTotalMaxMarks() {
+		return totalMaxMarks;
+	}
+
+	public void setTotalMaxMarks(Integer totalMaxMarks) {
+		this.totalMaxMarks = totalMaxMarks;
+	}
+
+	public String getgPointIITech() {
+		return gPointIITech;
+	}
+
+	public void setgPointIITech(String gPointIITech) {
+		this.gPointIITech = gPointIITech;
+	}
+
+}
